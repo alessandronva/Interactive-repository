@@ -1,0 +1,130 @@
+body {
+    background: #f1f1ab;
+}
+.main {
+    background: whitesmoke;
+    border: 10px solid #722f37;
+    padding: 20px;
+    width: 80%;
+    height: auto;
+    margin-right: 10%;
+    margin-left: 10%;
+    display: inline-block;
+}
+
+h1 {
+    text-align: center;
+}
+
+.l1 {
+
+    font-size: medium;
+    font-weight: bold;
+    float: left;
+}
+
+.palabras {
+    float: left
+}
+
+label {
+    width: 70%;
+    margin-right: 15;
+    margin-left: 15%;
+    float: left;
+    color: #722f37;
+    font-weight: bold;
+    align-items: center;
+}
+
+.lapsos {
+    width: 50%;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+     box-sizing: border-box;
+
+}
+
+select {
+    width: 80%;
+    margin-right: 10%;
+    margin-left: 10%;
+    align-items: center;
+    color: black;
+}
+
+
+input, textarea {
+    margin-bottom: 0px;
+    width: 100%;
+    float: left;
+}
+
+
+select:hover {
+    background: rgb(143, 159, 168);
+    font-weight: bold;
+}
+
+select:focus {
+    background: white;
+    color: red;
+}
+
+input[type="submit"]{
+    margin-top: 5%;
+    margin-bottom: 0;
+    background: #722f37;
+    color: #fff;
+    border: 2px solid black;
+    width: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+    }
+
+    input[type="submit"]:hover {
+        background: #9c6d72;
+        cursor: pointer;
+    
+    }
+
+    input[type="submit"]:active {
+        background: #941625;
+        border: 0px;
+    }
+
+    table {
+        margin-top: 1%;
+        border: 1px solid black;
+        border-collapse: collapse;
+        margin-left: 10%;
+        width: 86%;
+        background: white;
+    }
+    
+    table td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5%;
+
+    }
+
+    table tr:hover {
+        background: #9b1c2b;
+    }
+
+    .tr1 {
+        background: #722f37;
+    }
+
+    .tr1:hover {
+        background: #722f37;
+        margin-top: 0%;
+        font-weight: bold;
+        padding: 2px ;
+        cursor: pointer;
+    
+    }
+    
+    
