@@ -19,5 +19,6 @@ from repository import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home)    # Homepage view
+    path('', views.home),    # Homepage view
+    path('download/<filename>', views.download),
 ]
