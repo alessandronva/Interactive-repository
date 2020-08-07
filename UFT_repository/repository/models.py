@@ -19,6 +19,7 @@ class Tutor(models.Model):
 class Project(models.Model):
     title = models.TextField(verbose_name="Titulo", unique=True, max_length=300)
     description = models.TextField(verbose_name='Resumen')
+    autor = models.CharField(verbose_name='Autor', max_length=60)
     date = models.DateField(verbose_name="Fecha")
     tutor = models.ForeignKey(to=Tutor, on_delete=models.DO_NOTHING)
     special_mention = models.BooleanField(verbose_name="Mencion especial")
