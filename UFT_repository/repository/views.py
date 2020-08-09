@@ -19,6 +19,23 @@ def home(request):
     # TO DO: render home template    
     return django.http.HttpResponse(content=str(context))
 
+def show_project(request, title):
+    context = dict()
+    context['title'] = 'Ver proyecto'
+    query = Project.objects.get(title=title)
+
+    context['title'] = title
+    context['description'] = query.description
+    context['autor'] = query.autor
+    context['date'] = query.date
+    context['tutor'] = query.tutor
+    context['special_mention'] = query.special_mention
+    context['file'] = query.file
+    
+    # TO DO: render template
+    return django.http.HttpResponse(query)
+
+
 def download(request, filename):
     print("BASE DIR -->", settings.BASE_DIR)
     base_dir = settings.BASE_DIR
