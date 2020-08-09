@@ -1,130 +1,99 @@
-body {
+root {
+    --main-font: 'Arial Narrow';
+}
+html, body {
     background: #f1f1ab;
-}
-.main {
-    background: whitesmoke;
-    border: 10px solid #722f37;
-    padding: 20px;
-    width: 80%;
-    height: auto;
-    margin-right: 10%;
-    margin-left: 10%;
-    display: inline-block;
+     width: 100%;
+     height: 100%;
 }
 
-h1 {
-    text-align: center;
-}
-
-.l1 {
-
-    font-size: medium;
-    font-weight: bold;
-    float: left;
-}
-
-.palabras {
-    float: left
-}
-
-label {
-    width: 70%;
-    margin-right: 15;
-    margin-left: 15%;
-    float: left;
-    color: #722f37;
-    font-weight: bold;
-    align-items: center;
-}
-
-.lapsos {
-    width: 50%;
-    float: left;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-     box-sizing: border-box;
-
-}
-
-select {
-    width: 80%;
-    margin-right: 10%;
-    margin-left: 10%;
-    align-items: center;
-    color: black;
-}
-
-
-input, textarea {
-    margin-bottom: 0px;
+.title-tesis {
     width: 100%;
     float: left;
+    border-bottom: 1px solid gray;
+    height: 5%;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
-
-select:hover {
-    background: rgb(143, 159, 168);
+.text-tesis {
+    float: left;
+    color: black;
+    width: 100%;
+    text-align: center;
     font-weight: bold;
+    font-family: Tahoma;
+    margin-top: 1%;
 }
 
-select:focus {
+.container {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 100%;
+    min-height:100%;
+    border-radius: 10px;
+    border: 2px solid gray;
+    background-color: white;
+}
+
+.left {
+    float: left;
+    width: 29%;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-right: 1px solid gray;
+    height: 90%
+}
+
+.right {
+    float: left;
+    width: 70%;
     background: white;
+    height: 90%;
+}
+
+footer {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: black;
+    width: 98.8%;
+    text-align: center;
+    float: left;
+    padding: 2px 2px;
+    border-top: 1px solid gray;
+    height: 3.8%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+    margin-left: 5%;
+    font-size: 99%;
+    font-weight: bold;
+    font-family: Tahoma;
+}
+
+p {
+    text-align: left;
+    margin-left: 5%;
+    font-size: 99%;
+    font-family: Tahoma;
+}
+
+a {
+    text-align: left;
+    margin-left: 5%;
+    font-size: 99%;
+    margin-bottom: 2%;
+    margin-top: 0%;
+    font-family: Tahoma;
+}
+
+a:hover {
     color: red;
 }
 
-input[type="submit"]{
-    margin-top: 5%;
-    margin-bottom: 0;
-    background: #722f37;
-    color: #fff;
-    border: 2px solid black;
-    width: 20%;
-    margin-left: 40%;
-    margin-right: 40%;
-    }
-
-    input[type="submit"]:hover {
-        background: #9c6d72;
-        cursor: pointer;
-    
-    }
-
-    input[type="submit"]:active {
-        background: #941625;
-        border: 0px;
-    }
-
-    table {
-        margin-top: 1%;
-        border: 1px solid black;
-        border-collapse: collapse;
-        margin-left: 10%;
-        width: 86%;
-        background: white;
-    }
-    
-    table td {
-        border: 1px solid black;
-        border-collapse: collapse;
-        padding: 5%;
-
-    }
-
-    table tr:hover {
-        background: #9b1c2b;
-    }
-
-    .tr1 {
-        background: #722f37;
-    }
-
-    .tr1:hover {
-        background: #722f37;
-        margin-top: 0%;
-        font-weight: bold;
-        padding: 2px ;
-        cursor: pointer;
-    
-    }
-    
-    
+img.uft-logo{
+    width: 35%;
+    height: auto;
+    float: left;
+    margin-left: 32.5%;
+    margin-right: 32.5%;
+}
