@@ -1,4 +1,3 @@
-/*
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 *{
@@ -9,6 +8,7 @@
 }
 
 body {
+    /*background: #f1f1ab;*/
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -65,9 +65,11 @@ header nav ul li a:hover{
     background-color: #c7344d;
 }
 
+
 form{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     margin: 10px auto;
 }
@@ -179,90 +181,6 @@ main {
 }
 
 
-*/
-
-
-
-
-.container{
-    min-height: 50vh;
-    width: 90%;
-    margin: 0 auto;
-    border-radius: 10px;
-    border: 2px solid #808080;
-    background-color: #ffffff;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-}
-
-
-
-.title{
-    width: 100%;
-    padding: 10px 15px;
-    border-bottom: 2px solid #7f7f7f;
-}
-
-.left, .right, .description{
-    padding: 10px 15px;
-    display: flex;
-    flex-direction: column;
-}
-
-.left{
-    float: left;
-    min-width: 35%;
-    border-right: 1px solid #7f7f7f;
-}
-
-.left img{
-    width: 35%;
-    margin: 15px 32.5%;
-}
-
-#download-btn{
-    background-color: #E04A3A;
-    margin: 0 auto;
-    padding: 10px 40px;
-    border-radius: 10px;
-    font-weight: 900;
-    color: #fff;
-    text-decoration: none;
-}
-
-#download-btn:hover, #donwload-btn:focus{
-    background-color: #c7344d;
-}
-
-#download-btn .fas{
-    margin-right: 5px;
-}
-
-
-.right{
-    width: 55%;
-}
-
-.description{
-    width: 100%;
-    margin: 0 auto;
-    border-top: 2px solid #7f7f7f
-}
-
-.info{
-    margin: 3px 0 15px;
-}
-
-
-
-
-
-
-
-
-
-/*
 footer {
     background-color: #1f1f1f;
     color: #e7e7e7;
@@ -272,35 +190,9 @@ footer {
     border-top: 1px solid gray;
     height: 3.8%;
 }
-*/
-
-
-/*
-@media only screen and (max-width: 425px){
-    .left, .right{
-        width: 100%;
-        border: none;
-    }
-}
-
-*/
-@media only screen and (min-width: 601px) and (max-width: 768px){
-    .left{
-        width: 30%;
-    }
-    .right{
-        width: 50%;
-    }
-}
 
 
 @media only screen and (max-width: 600px){
-
-    .left, .right{
-        width: 100%;
-        border: none;
-    }
-/*
     form{
         width: 90%;
     }
@@ -315,7 +207,7 @@ footer {
     }
     
     .form-container label{
-        width: 100px;
+        width: 65px;
         margin: 0;
     }
 
@@ -327,8 +219,13 @@ footer {
         margin: 0 auto;
     }
 
-    .year-container div:nth-child(1), .year-container div:nth-child(2){
-        width: 100%;
+    .year-container{
+        flex-wrap: wrap;
     }
-    */
+
+    .year-container div{
+        width: 50%;
+    }
+
 }
+    
