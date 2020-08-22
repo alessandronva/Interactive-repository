@@ -1,0 +1,79 @@
+.container-table{
+    width: 90vw;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+td ,th{
+    min-width: 100px;
+    padding: 5px 15px;
+    text-align: center;
+    border: 1px solid #000;
+}
+
+tr:nth-child(even){
+    background-color: #ebebeb;
+}
+
+tr:nth-child(odd){
+    background-color: #dadada;
+}
+
+thead tr:nth-child(1){
+    background-color: #c7344d;
+    color: #EEE2E4;
+}
+
+.column-number{
+    min-width: 50px;
+}
+
+.column-title{
+    max-width: 30%;
+    padding: 15px;
+    text-align: left;
+}
+
+.column-title a{
+    color: #030303;
+    text-decoration: none;
+}
+
+.column-title a:hover, .column-title a:focus{
+    color: #872435;
+    text-decoration: underline;
+}
+
+.fa-check-circle,
+.fa-times-circle{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    height: fit-content;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+
+}
+
+.fa-check-circle::before,
+.fa-times-circle::before{
+    background: radial-gradient(#fff 50%, #000 100%);
+    border-radius: 50%;
+}
+
+
+.fa-check-circle{
+    color: #5dcf46;
+}
+.fa-times-circle{
+    color: #c7344d;
+}
+
+.amount-info{
+    margin: 10px 0 10px 5vw;
+}

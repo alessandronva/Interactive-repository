@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="./CSS/main-style.css">
+    <script src="https://kit.fontawesome.com/2c23f77634.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+
+        <nav class="main-color">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Quienes somos</a></li>
+            </ul>
+        </nav>
+
+        <form action="" method="get">
+            <div class="form-container title-container">
+                <input type="text" name="title" id="title" placeholder="Titulo a buscar">
+                <button type="submit" class="main-color-btn"><i class="fas fa-arrow-right"></i></button>
+            </div>
+
+            <div class="form-container">
+                <label for="tutor">Tutor</label>
+                <select name="tutor" id="tutor">
+                    <option value="" selected>Escoga tutor</option>
+                    <option value="tutor-1">Tutor 1</option>
+                    <option value="tutor-2">Tutor 2</option>
+                    <option value="tutor-3">Tutor 3</option>
+                </select>
+            </div>
+
+            <div class="form-container year-container">
+                <div>
+                    <label for="year-low">Desde:</label>
+                    <select name="year-low" id="year-low">
+                        <option value="1990">1990</option>
+                        <option value="1991">1991</option>
+                        <option value="1992">1992</option>
+                        <option value="1993">1993</option>
+                    </select>
+                </div>
+                    
+                <div>
+                    <label for="year-high">Hasta:</label>
+                    <select name="year-high" id="year-high">
+                        <option value="1990">1990</option>
+                        <option value="1991">1991</option>
+                        <option value="1992">1992</option>
+                        <option value="1993" selected>1993</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <label for="container-slider">Mencion especial</label>
+                <div id="container-slider">
+                    <input type="checkbox" name="spec-mention" id="spec-mention">
+                    <div id="courtain"></div>
+                    <span id="roller"></span>
+                </div>
+            </div>
+
+            <button type="submit" id="search-btn" class="main-color-btn"><i class="fas fa-search"></i> Buscar</button>
+        </form>
+    </header>
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+
+    <footer>Universidad Fermín Toro - Escuela de telecomunicaciones <br> Powered by Elias Colmenarez y Alessandro Viera</footer>
+
+</body>
+</html>
