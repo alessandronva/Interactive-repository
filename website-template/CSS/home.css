@@ -2,7 +2,6 @@
     width: 90vw;
     margin: 0 auto;
     overflow-x: auto;
-    background-color: cadetblue;
 }
 
 table{
@@ -17,11 +16,11 @@ td ,th{
 }
 
 tr:nth-child(even){
-    background-color: #cacaca;
+    background-color: #ebebeb;
 }
 
 tr:nth-child(odd){
-    background-color: #afafaf;
+    background-color: #dadada;
 }
 
 thead tr:nth-child(1){
@@ -63,7 +62,7 @@ thead tr:nth-child(1){
 
 .fa-check-circle::before,
 .fa-times-circle::before{
-    background-color: #fff;
+    background: radial-gradient(#fff 50%, #000 100%);
     border-radius: 50%;
 }
 
@@ -73,4 +72,8 @@ thead tr:nth-child(1){
 }
 .fa-times-circle{
     color: #c7344d;
+}
+
+.amount-info{
+    margin: 10px 0 10px 5vw;
 }

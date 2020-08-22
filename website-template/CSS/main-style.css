@@ -142,7 +142,7 @@ form{
 #courtain{
     width: 0%;
     height: 100%;
-    background-color: #5aff5a;
+    background-color: #1adcff;/*#5aff5a;*/
     position: absolute;
     left: 0;
     transition: width .5s;
