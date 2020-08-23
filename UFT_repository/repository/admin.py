@@ -7,7 +7,7 @@ class TutorAdmin(admin.ModelAdmin):
     list_filter = ('name', 'lastname')
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('title', 'autor', 'date', 'tutor', 'special_mention')
+    list_display = ('title', 'author', 'date', 'tutor', 'special_mention')
     list_filter = ('title', 'date', 'tutor', 'special_mention')
 
 admin.site.register(Tutor, TutorAdmin)

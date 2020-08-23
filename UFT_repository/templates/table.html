@@ -1,0 +1,45 @@
+<div class="container-table">
+
+    {% if projects %}
+    <table>
+        <thead>
+            <tr>
+                <th class="column-number">Nº</th>
+                <th>titulo</th>
+                <th>Autor</th>
+                <th>Tutor</th>
+                <th>Año</th>
+                <th>Mencion Especial</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for num, project in projects %}
+
+                <tr>
+                    <td class="column-number">{{num}}</td>
+                    <td class="column-title"> <a href="#"> {{project.title}} </a> </td>
+                    <td> {{project.author}} </td>
+                    <td> {{project.tutor}} </td>
+                    <td> {{project.date.year}} </td>
+                    <td>
+                        {% if project.special_mention %}
+                            <i class="fas fa-check-circle"></i>
+                        {% else %}
+                            <i class="fas fa-times-circle"></i>
+                        {% endif %} 
+                    </td>
+                </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    <p class="amount-info">Mostrando los ultimos <b>{{projects|length}}</b> trabajos de grado destacados</p>
+    {% else %}
+        <img src="" alt="Sin-resultados">
+    {% endif %}
+</div>

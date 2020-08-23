@@ -1,11 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="./CSS/main-style.css">
+    <title>{% block title %} UFT telecom | {{title}} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static "CSS/main-style.css" %}">
+
+    {% if style_table %}
+        <link rel="stylesheet" href="{% static "CSS/table.css" %}">
+    {% endif %}
     <script src="https://kit.fontawesome.com/2c23f77634.js" crossorigin="anonymous"></script>
 </head>
 <body>

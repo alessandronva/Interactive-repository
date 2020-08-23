@@ -7,17 +7,22 @@ import django.http
 # Create your views here.
 def home(request):
     context = dict()
-    context['title'] = 'Home'
+    context['title'] = 'Inicio'
+    context['style_table'] = True
     # query the projects tagged as special mention to show in home page
-    context['highlighted'] = Project.objects.filter(special_mention=1)
+    context['projects'] = list(enumerate(Project.objects.filter(special_mention=1), 1))[:10]
+
+    context['media'] = settings.MEDIA_ROOT + '/'
 
     # query all the tutors to show as filters
     context['tutors'] = Tutor.objects.all()
-    print(context['highlighted'])
+    print(context['projects'])
     print(context['tutors'])
 
+
     # TO DO: render home template    
-    return django.http.HttpResponse(content=str(context))
+    return render(request, "home.html", context)
+    #return django.http.HttpResponse(content=str(context))
 
 def show_project(request, title):
     context = dict()
