@@ -24,7 +24,11 @@
             </ul>
         </nav>
 
-        <form action="" method="get">
+        {% if in_search %}
+            <form action="" method="get">
+        {% else %}
+            <form action="/buscar" method="get">
+        {% endif %}
             <div class="form-container title-container">
                 <input type="text" name="title" id="title" placeholder="Titulo a buscar">
                 <button type="submit" class="main-color-btn"><i class="fas fa-arrow-right"></i></button>
@@ -34,9 +38,9 @@
                 <label for="tutor">Tutor</label>
                 <select name="tutor" id="tutor">
                     <option value="" selected>Escoga tutor</option>
-                    <option value="tutor-1">Tutor 1</option>
-                    <option value="tutor-2">Tutor 2</option>
-                    <option value="tutor-3">Tutor 3</option>
+                    {% for tutor in tutors %}
+                    <option value="{{tutor}}">{{tutor}}</option>
+                    {% endfor %}
                 </select>
             </div>
 
@@ -44,20 +48,28 @@
                 <div>
                     <label for="year-low">Desde:</label>
                     <select name="year-low" id="year-low">
-                        <option value="1990">1990</option>
-                        <option value="1991">1991</option>
-                        <option value="1992">1992</option>
-                        <option value="1993">1993</option>
+                        
+                        {% for year in years %}
+                            {% if year == years.0 %}
+                                <option value="{{year}}" selected>{{year}}</option>
+                            {% else %}
+                                <option value="{{year}}">{{year}}</option>
+                            {% endif %}
+                        {% endfor %}
+
                     </select>
                 </div>
                     
                 <div>
                     <label for="year-high">Hasta:</label>
                     <select name="year-high" id="year-high">
-                        <option value="1990">1990</option>
-                        <option value="1991">1991</option>
-                        <option value="1992">1992</option>
-                        <option value="1993" selected>1993</option>
+                        {% for year in years %}
+                            {% if year == years|last %}
+                                <option value="{{year}}" selected>{{year}}</option>
+                            {% else %}
+                                <option value="{{year}}">{{year}}</option>
+                            {% endif %}
+                        {% endfor %}
                     </select>
                 </div>
             </div>
@@ -65,7 +77,7 @@
             <div class="form-container">
                 <label for="container-slider">Mencion especial</label>
                 <div id="container-slider">
-                    <input type="checkbox" name="spec-mention" id="spec-mention">
+                    <input type="checkbox" name="spec-mention" id="spec-mention" checked>
                     <div id="courtain"></div>
                     <span id="roller"></span>
                 </div>
