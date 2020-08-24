@@ -3,8 +3,7 @@ from .models import Project, Tutor
 # Register your models here.
 
 class TutorAdmin(admin.ModelAdmin):
-    list_display = ('name', 'lastname')
-    list_filter = ('name', 'lastname')
+    list_display = ('name',)
 
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'date', 'tutor', 'special_mention')
