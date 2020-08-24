@@ -28,8 +28,6 @@ def home(request):
     # query the projects tagged as special mention to show in home page
     context['projects'] = list(enumerate(Project.objects.filter(special_mention=1), 1))[:10]
 
-    context['media'] = settings.MEDIA_ROOT + '/'
-
     # query all the tutors to show as filters
     context['tutors'] = Tutor.objects.all()
     print(context['projects'])
