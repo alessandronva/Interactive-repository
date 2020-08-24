@@ -91,6 +91,7 @@ def search(request):
 def show_project(request, title):
     context = dict()
     context['title'] = 'Ver proyecto'
+    context['style_description'] = True
     context['years'] = get_search_years()
     context['tutors'] = Tutor.objects.all()
 
@@ -98,14 +99,16 @@ def show_project(request, title):
 
     context['title'] = title
     context['description'] = query.description
-    context['autor'] = query.autor
+    context['author'] = query.author
     context['date'] = query.date
     context['tutor'] = query.tutor
     context['special_mention'] = query.special_mention
-    context['file'] = query.file
+    context['file'] = query.file.name
+
+    print(context['file'])
     
-    # TO DO: render template
-    return django.http.HttpResponse(query)
+    return render(request, "description.html", context)
+    #return django.http.HttpResponse(query)
 
 
 def download(request, filename):
