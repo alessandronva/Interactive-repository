@@ -20,6 +20,7 @@ from repository import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),    # Homepage view
+    path('buscar/', views.search),
     path('proyecto/<title>', views.show_project),    
     path('download/<filename>', views.download),
 ]
