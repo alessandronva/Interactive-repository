@@ -19,7 +19,7 @@
 
                     <tr>
                         <td class="column-number">{{num}}</td>
-                        <td class="column-title"> <a href="#"> {{project.title}} </a> </td>
+                        <td class="column-title"> <a href="/proyecto/{{project.title}}"> {{project.title}} </a> </td>
                         <td> {{project.author}} </td>
                         <td> {{project.tutor}} </td>
                         <td> {{project.date.year}} </td>
@@ -43,7 +43,7 @@
         {% endif %}
         
     {% else %}
-        {% load staticfiles%}
+        {% load staticfiles %}
         <img src="{% static "media/empty_search.png" %}" alt="Sin-resultados">
     {% endif %}
 </div>

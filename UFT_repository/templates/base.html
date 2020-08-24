@@ -11,6 +11,10 @@
     {% if style_table %}
         <link rel="stylesheet" href="{% static "CSS/table.css" %}">
     {% endif %}
+    
+    {% if style_description %}
+        <link rel="stylesheet" href="{% static "CSS/description.css" %}">
+    {% endif %}
     <script src="https://kit.fontawesome.com/2c23f77634.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -19,7 +23,7 @@
 
         <nav class="main-color">
             <ul>
-                <li><a href="#">Inicio</a></li>
+                <li><a href="">Inicio</a></li>
                 <li><a href="#">Quienes somos</a></li>
             </ul>
         </nav>
