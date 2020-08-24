@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="title"> {{title}} </h2>
+        <section class="left">
+            {% load staticfiles %}
+            <img src="{% static "media/pdf.svg" %}" alt="pdf-icon">
+            <a href="/download/{{title}}" id="download-btn"><i class="fas fa-cloud-download-alt"></i>Descargar</a>
+        </section>
+        
+        <section class="right">
+            <h4>Autor</h4>
+            <p class="info"> {{author}} </p>
+
+            <h4> Título </h4>
+            <p class="info"> {{title}} </p>
+
+            <h4>Tutor</h4>
+            <p class="info"> {{tutor}} </p>
+
+            <h4>Fecha</h4>
+            <p class="info"> {{date.year}} </p>
+        </section>
+        
+        <section class="description">
+            <h4>Resumen/Reseña</h4>
+            <p>{{description}}</p>
+        </section>
+    </div>
+{% endblock %}
