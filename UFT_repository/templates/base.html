@@ -34,16 +34,20 @@
             <form action="/buscar" method="get">
         {% endif %}
             <div class="form-container title-container">
-                <input type="text" name="title" id="title" placeholder="Titulo a buscar">
+                <input type="text" name="title" id="title" placeholder="Titulo a buscar" value="{{form.title}}">
                 <button type="submit" class="main-color-btn"><i class="fas fa-arrow-right"></i></button>
             </div>
 
             <div class="form-container">
                 <label for="tutor">Tutor</label>
                 <select name="tutor" id="tutor">
-                    <option value="" selected>Escoja tutor</option>
+                    <option value="">Escoja tutor</option>
                     {% for tutor in tutors %}
-                    <option value="{{tutor}}">{{tutor}}</option>
+                        {% if tutor.name == form.tutor %}
+                            <option value="{{tutor}}" selected>{{tutor}}</option>
+                        {% else %}
+                            <option value="{{tutor}}">{{tutor}}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
             </div>
@@ -51,13 +55,20 @@
             <div class="form-container year-container">
                 <div>
                     <label for="year-low">Desde:</label>
-                    <select name="year-low" id="year-low">
+                    <select name="year_low" id="year-low">
                         
                         {% for year in years %}
-                            {% if year == years.0 %}
+                            {% if year == years.0 and not in_search %}
                                 <option value="{{year}}" selected>{{year}}</option>
+                            
                             {% else %}
-                                <option value="{{year}}">{{year}}</option>
+
+                                {% if year == form.year_low %}
+                                    <option value="{{year}}" selected>{{year}}</option>
+                                {% else %}
+                                    <option value="{{year}}">{{year}}</option>
+                                {% endif %}
+
                             {% endif %}
                         {% endfor %}
 
@@ -66,12 +77,20 @@
                     
                 <div>
                     <label for="year-high">Hasta:</label>
-                    <select name="year-high" id="year-high">
+                    <select name="year_high" id="year-high">
                         {% for year in years %}
-                            {% if year == years|last %}
+
+                            {% if year == years|last and not in_search %}
                                 <option value="{{year}}" selected>{{year}}</option>
+                                <option value="">ENTRE AQU</option>
+                                
                             {% else %}
-                                <option value="{{year}}">{{year}}</option>
+                                {% if year == form.year_high %}
+                                    <option value="{{year}}" selected>{{year}}</option>
+                                {% else %}
+                                    <option value="{{year}}">{{year}}</option>
+                                {% endif %}
+
                             {% endif %}
                         {% endfor %}
                     </select>
@@ -81,8 +100,12 @@
             <div class="form-container">
                 <label for="container-slider">Mencion especial</label>
                 <div id="container-slider">
-                    <input type="checkbox" name="spec-mention" id="spec-mention" checked>
-                    <div id="courtain"></div>
+                    {% if not form.spec_mention and style_search%}
+                        <input type="checkbox" name="spec_mention" id="spec-mention">
+                    {% else %}
+                        <input type="checkbox" name="spec_mention" id="spec-mention" checked>
+                    {% endif %}
+                        <div id="courtain"></div>
                     <span id="roller"></span>
                 </div>
             </div>

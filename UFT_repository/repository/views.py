@@ -12,7 +12,7 @@ def get_search_years():
 
     print("AÑOS -->", min, max)
 
-    return [year for year in range(min, max + 1)]
+    return [str(year) for year in range(min, max + 1)]
 
 def get_tutors():
     return Tutor.objects.all() 
@@ -43,19 +43,18 @@ def search(request):
     context['tutors'] = Tutor.objects.all()
 
     form_data = dict(request.GET) # dict
-    print(form_data)
 
     # form data values are a list containing a str with the form value
     # take the value as a str and not a list
     for key in form_data:
         form_data[key] = form_data[key][0]
 
-    # "spec-mention" appears on the request if selected with the value of "on"
+    # "spec_mention" appears on the request if selected with the value of "on"
     # take "on" as True, if it doesnt appears it wasn't checked, take as False
-    if "spec-mention" in form_data:
-        form_data["spec-mention"] = True
+    if "spec_mention" in form_data:
+        form_data["spec_mention"] = True
     else:
-        form_data["spec-mention"] = False
+        form_data["spec_mention"] = False
 
     context['title'] = form_data['title']
 
@@ -70,18 +69,25 @@ def search(request):
     if form_data['tutor']:
         query = query.filter(tutor__name__exact = form_data['tutor'])
 
-    # get the projects between "year-low" and "year-high"
+    # get the projects between "year_low" and "year_high"
     query = query.filter(
-        date__gte= datetime.date(int(form_data['year-low']), 1, 1),
-        date__lte= datetime.date(int(form_data['year-high']), 12, 31)
+        date__gte= datetime.date(int(form_data['year_low']), 1, 1),
+        date__lte= datetime.date(int(form_data['year_high']), 12, 31)
     )
 
     # Remove special-mentions projects if the option was unchecked 
-    if not form_data['spec-mention']:
+    if not form_data['spec_mention']:
         query = query.filter(special_mention = False)
 
     print("\n\nBUSQUEDA\n\n", query)
     context['projects'] = list(enumerate(query, 1))
+
+    # add to context the title 
+    context['title'] = f"Buscar {form_data['title']}"
+
+    # add the form searched values to render the form with then
+    context['form'] = form_data
+    print(form_data)
 
     return render(request, "home.html", context)
     #return django.http.HttpResponse(query)
