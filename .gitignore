@@ -3,3 +3,4 @@
 .venv
 venv
 UFT_repository/static
+.mypy_cache
