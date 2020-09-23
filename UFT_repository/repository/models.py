@@ -11,6 +11,11 @@ def validate_pdf(file):
 
 class Tutor(models.Model):
     name = models.CharField(verbose_name="Nombre y Apellido", max_length=50)
+
+    class Meta:
+        verbose_name = "Tutor"
+        verbose_name_plural = "Tutores"
+
     def __str__(self):
         return f"{self.name}"
 
@@ -22,6 +27,9 @@ class Project(models.Model):
     tutor = models.ForeignKey(to=Tutor, on_delete=models.CASCADE)
     special_mention = models.BooleanField(verbose_name="Mencion especial")
     file = models.FileField(verbose_name="Archivo PDF", upload_to='./files', validators=(validate_pdf,))
+
+    class Meta:
+        verbose_name = "Trabajo"
 
     def __str__(self):
         return self.title

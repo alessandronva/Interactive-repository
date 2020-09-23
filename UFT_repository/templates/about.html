@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for employee in query %}
+        <h1> {{employee.name}} </h1>
+        <img src="{{employee.img.url}}" alt="{{employee.img}}">
+    {% endfor %}
+
+{% endblock %}

@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from repository import views
+from info import views as info_views
+
+#to show images from imagefield
+from . import settings
+from django.contrib.staticfiles.urls import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +29,10 @@ urlpatterns = [
     path('buscar/', views.search),
     path('proyecto/<title>', views.show_project),    
     path('download/<filename>', views.download),
+    path('nosotros/', info_views.about)
 ]
+
+
+
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
