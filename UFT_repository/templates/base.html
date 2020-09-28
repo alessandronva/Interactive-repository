@@ -15,6 +15,10 @@
     {% if style_description %}
         <link rel="stylesheet" href="{% static "CSS/description.css" %}">
     {% endif %}
+
+    {% if style_search %}
+        <link rel="stylesheet" href="{% static "CSS/search.css" %}">
+    {% endif %}
     <script src="https://kit.fontawesome.com/2c23f77634.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -27,12 +31,17 @@
                 <li><a href="/nosotros">Quienes somos</a></li>
             </ul>
         </nav>
+        <!--
 
-        {% if in_search %}
+        
+        {% if not style_search %}
             <form action="" method="get">
         {% else %}
-            <form action="/buscar" method="get">
+            <form action="/buscar/1/" method="get">
         {% endif %}
+        -->
+        <form action="/buscar/1/" method="get">
+
             <div class="form-container title-container">
                 <input type="text" name="title" id="title" placeholder="Titulo a buscar" value="{{form.title}}">
                 <button type="submit" class="main-color-btn"><i class="fas fa-arrow-right"></i></button>
