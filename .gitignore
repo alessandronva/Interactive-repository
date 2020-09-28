@@ -2,5 +2,5 @@
 .vscode
 .venv
 venv
-UFT_repository/static
+# UFT_repository/static
 .mypy_cache
