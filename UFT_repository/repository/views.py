@@ -81,6 +81,8 @@ def search(request, page : int):
 
     # get how many projects returns the query
     length = len(query)
+    context['search_length'] = length
+
     pages_amount = int(length / 2) + 1
 
     print(f"\n\nProjects-->{length}\nPages--> {pages_amount}")

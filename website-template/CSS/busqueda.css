@@ -8,18 +8,17 @@
 #page-selector{
     width: 90vw;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
 }
 
-#page-selector ul p{
-    height: 100%;
-    display: flex;
+#page-selector p{
     align-items: center;
     justify-content: center;
 }
 
 #page-selector ul{
     list-style: none;
-    width: 100%;
 }
 
 #page-selector ul li{

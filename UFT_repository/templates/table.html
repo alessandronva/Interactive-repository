@@ -38,37 +38,48 @@
 
         </table>
 
-        {% if not style_search %}
-            <p class="amount-info">Mostrando los ultimos <b>{{projects|length}}</b> trabajos de grado destacados</p>
-        
-        {% else %}
-        
-            <p class="amount-info"><b>37</b> resultados encontrados</p>
-            
-            <nav id="page-selector">
-                <ul>
-                    <p>Pagina: </p>
-                    {% if show_first_page %}
-                        <li><a href="/buscar/1/?{{query_str}}" class="page">1</a></li>
-                    {% endif %}
-                    {% for button in page_buttons %}
-                        {% if button == active_page %}
-                            <li><a href="/buscar/{{button}}/?{{query_str}}" class="page active">{{button}}</a></li>
-                        {% else %}
-                            <li><a href="/buscar/{{button}}/?{{query_str}}" class="page">{{button}}</a></li>
-                        {% endif %}
-                    {% endfor %}
 
-                    {% if show_last_page %}
-                        <li><a href="/buscar/{{last_page}}/?{{query_str}}" class="page">{{last_page}}</a></li>
-                    {% endif %}
-
-                </ul>
-            </nav>
-        {% endif %}
         
     {% else %}
         {% load staticfiles %}
         <img src="{% static "media/empty_search.png" %}" alt="Sin-resultados">
     {% endif %}
 </div>
+
+
+{% if projects %}
+
+{% if not style_search %}
+<p class="amount-info">Mostrando los ultimos <b>{{projects|length}}</b> trabajos de grado destacados</p>
+
+{% else %}
+
+<p class="amount-info"><b>37</b> resultados encontrados</p>
+
+    <nav id="page-selector">
+        <p>Pagina: </p>
+        <ul>
+            {% if show_first_page %}
+                <li><a href="/buscar/1/?{{query_str}}" class="page">1</a></li>
+            {% endif %}
+            {% for button in page_buttons %}
+                {% if button == active_page %}
+                    <li><a href="/buscar/{{button}}/?{{query_str}}" class="page active">{{button}}</a></li>
+                {% else %}
+                    <li><a href="/buscar/{{button}}/?{{query_str}}" class="page">{{button}}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if show_last_page %}
+                <li><a href="/buscar/{{last_page}}/?{{query_str}}" class="page">{{last_page}}</a></li>
+            {% endif %}
+
+        </ul>
+    </nav>
+
+
+
+{% endif %}
+
+
+{% endif %}

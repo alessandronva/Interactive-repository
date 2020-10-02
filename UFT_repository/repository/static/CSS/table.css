@@ -75,14 +75,14 @@ thead tr:nth-child(1){
     color: #c7344d;
 }
 
-.amount-info{
-    margin: 10px 0 10px 5vw;
-}
-
 .container-table img{
     display: block;
     width: 100%;
     max-width: 500px;
     border: 2px solid #000;
     margin: 0 auto;
+}
+
+.amount-info{
+    margin: 10px 5vw;
 }
