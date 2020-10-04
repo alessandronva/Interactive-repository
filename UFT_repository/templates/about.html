@@ -2,9 +2,145 @@
 
 {% block content %}
 
-    {% for employee in query %}
-        <h1> {{employee.name}} </h1>
-        <img src="{{employee.img.url}}" alt="{{employee.img}}">
-    {% endfor %}
+{% load staticfiles %}
+
+    {% if bosses %}
+        <div class="container-info">
+
+            {% for employee in bosses %}
+                <article>
+                    {% if employee.img %}
+                        <img src="{{employee.img.url}}" alt="{{employee.img}}">
+                    {% else %}
+                        <img src="{% static "media/noPhoto.png" %}" alt="foto vacia">
+                    {% endif %}
+                    
+                    <div class="name">
+                        <i class="fas fa-user-circle"></i><h3> {{employee.name}} </h3>
+                    </div>
+                    
+                    <div class="role">
+                        <i class="fas fa-briefcase"></i> <p> Jefe </p>
+                    </div>        
+                </article>
+            {% endfor %}
+        
+        </div>
+    {% endif %}
+
+    {% if teachers %}
+        <div class="container-info">
+
+            {% for employee in teachers %}
+                <article>
+                    {% if employee.img %}
+                        <img src="{{employee.img.url}}" alt="{{employee.img}}">
+                    {% else %}
+                        <img src="{% static "media/noPhoto.png" %}" alt="foto vacia">
+                    {% endif %}
+                    
+                    <div class="name">
+                        <i class="fas fa-user-circle"></i><h3> {{employee.name}} </h3>
+                    </div>
+                    
+                    <div class="role">
+                        <i class="fas fa-briefcase"></i> <p> Docente </p>
+                    </div>        
+                </article>
+            {% endfor %}
+        
+        </div>
+    {% endif %}
+
+    {% if admins %}
+        <div class="container-info">
+
+            {% for employee in admins %}
+                <article>
+                    {% if employee.img %}
+                        <img src="{{employee.img.url}}" alt="{{employee.img}}">
+                    {% else %}
+                        <img src="{% static "media/noPhoto.png" %}" alt="foto vacia">
+                    {% endif %}
+                    
+                    <div class="name">
+                        <i class="fas fa-user-circle"></i><h3> {{employee.name}} </h3>
+                    </div>
+                    
+                    <div class="role">
+                        <i class="fas fa-briefcase"></i> <p> Administrativo </p>
+                    </div>        
+                </article>
+            {% endfor %}
+        
+        </div>
+    {% endif %}
+
+    {% if show_devs %}
+        <div class="container-info">
+            <article class="dev-card">
+                <img src="{% static "media/fotoElias.jpg" %}" alt="foto Elias">
+                <div class="name">
+                    <i class="fas fa-user-circle"></i><h3>Elias Colmenarez</h3>
+                </div>
+                <div class="role">
+                    <i class="fas fa-briefcase"></i> <p> Desarrollo frontend y backend del sitio web </p>
+                </div>
+
+                <div class="urls">
+                    <a href="http://github.com/EgCode97" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a href="http://www.linkedin.com/in/elias-colmenarez-9745511b3/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </article>
+
+            <article class="dev-card">
+                <img src="{% static "media/fotoAlessandro.JPG" %}" alt="foto Alessandro">
+
+                <div class="name">
+                    <i class="fas fa-user-circle"></i><h3>Alessandro Viera</h3>
+                </div>
+
+                <div class="role">
+                    <i class="fas fa-briefcase"></i> <p> Desarrollo frontend y devops del sitio web </p>
+                </div>
+
+                <div class="urls">
+                    <a href="http://github.com/alessandronva" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a href="http://www.linkedin.com/in/alessandro-viera-434b32139/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </article>
+        </div>
+    {% endif %}
+
+    {% if contacts %}
+
+        <ul class="container-info contact-info">
+            {% for contact in contacts %}
+            <li>
+                <h3> {{contact.name}} </h3>
+                
+                {% if contact.phone %}
+                    <p> {{contact.phone}} </p>
+                {% endif %}
+
+                {% if contact.email %}
+                    <p> {{contact.email}} </p>
+                {% endif %}
+            </li>
+
+            {% endfor %}
+        </ul>
+
+    {% endif %}
 
 {% endblock %}

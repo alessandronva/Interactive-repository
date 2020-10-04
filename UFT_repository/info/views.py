@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 from UFT_repository.settings import BASE_DIR
 
-from .models import Employee
+from .models import Employee, Contact
 
 # Create your views here.
 def about(request):
@@ -11,7 +11,14 @@ def about(request):
     context['title'] = 'Sobre nosotros'
     context['style_about'] = True
 
-    context["query"] = Employee.objects.all()
-    #img = query.img.url
+    query = Employee.objects.all().filter(status=True)
+
+    context['bosses'] = query.filter(role='boss')
+    context['teachers'] = query.filter(role='prof')
+    context['admins'] = query.filter(role='admin')
+
+    context['contacts'] = Contact.objects.all()
+
+    context['show_devs'] = True
 
     return render(request, template_name='about.html', context=context)

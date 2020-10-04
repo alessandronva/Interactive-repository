@@ -1,0 +1,60 @@
+.container-info{
+    margin: 60px auto;
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.container-info article{
+    max-width: 200px;
+    height: fit-content;
+    margin: 15px 10px;
+    background-color: #dbdbdb;
+}
+
+.container-info img{
+    width: 100%;
+}
+
+.container-info .fas{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-right: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+
+.container-info .role, .container-info .name{
+    display: flex;
+    align-items: center;
+}
+
+.container-info .name{
+    margin-bottom: 5px;
+}
+
+.dev-card .urls{
+    display: flex;
+    justify-content: center;
+}
+
+.dev-card .urls .fab{
+    font-size: 2rem;
+    margin: 5px 10px;
+}
+
+.dev-card .urls .fa-github{
+    color: #333;
+}
+
+.dev-card .urls .fa-linkedin{
+    color: #2867b2;
+}
+
+.contact-info{
+    list-style: none;
+}
