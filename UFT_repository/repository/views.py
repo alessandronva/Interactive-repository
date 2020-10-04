@@ -173,7 +173,7 @@ def download(request, filename):
     filename = Project.objects.get(title=filename).file
     print("FILENAME-->", filename)
 
-    file = f"{base_dir}/{ filename }"
+    file = f"{base_dir}/media/{filename}"
     print("FILE-->", file)
     response = django.http.HttpResponse(open(file, 'rb').read(), content_type='application/pdf')
 
