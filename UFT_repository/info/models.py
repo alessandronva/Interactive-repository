@@ -3,7 +3,13 @@ from django.db import models
 # Create your models here.
 class Employee(models.Model):
     name = models.CharField(verbose_name="Nombre", max_length=50, help_text="Nombre y apellido")
-    img = models.ImageField(verbose_name="Foto", help_text="(200X300px recomendado)", upload_to="employees")
+    img = models.ImageField(
+        verbose_name="Foto",
+        help_text="(200X300px recomendado)",
+        upload_to="employees",
+        blank = True,
+        null= True
+    )
     role = models.CharField(
         verbose_name="Puesto",
         max_length=50, 
