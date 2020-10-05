@@ -92,18 +92,9 @@ def search(request, page : int):
     context['query_str'] = str(request.META['QUERY_STRING'])
 
     # calculate necesaries pages
-    PROJECTS_PER_PAGE = 2
+    PROJECTS_PER_PAGE = 10
     PAGE_RANGE = (page-1)*PROJECTS_PER_PAGE
-    '''
-    if page > 5 and pages_amount > page + PROJECTS_PER_PAGE:
-        context['page_buttons'] = list( range(page - 2, page + 2) )
 
-    elif page <= 5 and pages_amount <= page + 2:
-        context['page_buttons'] = list( range(1, pages_amount +1 ) )
-
-    else:
-        context['page_buttons'] = list( range(1, pages_amount) ) if pages_amount < 5 else list( range(1, 4) )
-    '''
     context['page_buttons'] = list()
     if page < 3 and pages_amount > 3:
         context['page_buttons'] = [index for index in range(1,5)]
