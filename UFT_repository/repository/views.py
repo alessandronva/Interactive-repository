@@ -83,7 +83,7 @@ def search(request, page : int):
     length = len(query)
     context['search_length'] = length
 
-    pages_amount = int(length / 2) + 1
+    pages_amount = int(length / 10) + 1
 
     print(f"\n\nProjects-->{length}\nPages--> {pages_amount}")
     context['active_page'] = page
@@ -109,6 +109,9 @@ def search(request, page : int):
     elif pages_amount > 3 and not page < pages_amount-2:
         context['page_buttons'] = [index for index in range(page-2, pages_amount)]
         context['show_first_page'] = True
+
+    else:
+        context['page_buttons'] = [index for index in range(1, pages_amount + 1)]
 
     # aplit the query depending on the page
     print("\n\nPAGE-->",page)
