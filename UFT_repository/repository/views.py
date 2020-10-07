@@ -10,7 +10,7 @@ def get_search_years():
     query = Project.objects.all().order_by('date')
     min, max = query.first().date.year, query.last().date.year
 
-    print("AÑOS -->", min, max)
+    #print("AÑOS -->", min, max)
 
     return [str(year) for year in range(min, max + 1)]
 
@@ -30,8 +30,8 @@ def home(request):
 
     # query all the tutors to show as filters
     context['tutors'] = Tutor.objects.all()
-    print(context['projects'])
-    print(context['tutors'])
+    #print(context['projects'])
+    #print(context['tutors'])
 
     return render(request, "home.html", context)
 
@@ -85,7 +85,7 @@ def search(request, page : int):
 
     pages_amount = int(length / 10) + 1
 
-    print(f"\n\nProjects-->{length}\nPages--> {pages_amount}")
+    #print(f"\n\nProjects-->{length}\nPages--> {pages_amount}")
     context['active_page'] = page
     context['last_page'] = pages_amount - 1
 
@@ -114,11 +114,11 @@ def search(request, page : int):
         context['page_buttons'] = [index for index in range(1, pages_amount + 1)]
 
     # aplit the query depending on the page
-    print("\n\nPAGE-->",page)
-    print("RANGE-->", PAGE_RANGE, PAGE_RANGE + PROJECTS_PER_PAGE)
+    #print("\n\nPAGE-->",page)
+    #print("RANGE-->", PAGE_RANGE, PAGE_RANGE + PROJECTS_PER_PAGE)
     query = query[PAGE_RANGE: PAGE_RANGE + PROJECTS_PER_PAGE]
 
-    print("\n\nBUSQUEDA\n\n", query)
+    #print("\n\nBUSQUEDA\n\n", query)
     if page == 1:
        context['projects'] = list(enumerate(query, 1))
     else:
@@ -129,10 +129,10 @@ def search(request, page : int):
 
     # add the form searched values to render the form with then
     context['form'] = form_data
-    print(form_data)
+    #print(form_data)
 
-    print("\n\nREQUEST-->", str(request.path_info))
-    print("\n PRUEBA-->", str(request.path_info) + "?" + str(request.META['QUERY_STRING']))
+    #print("\n\nREQUEST-->", str(request.path_info))
+    #print("\n PRUEBA-->", str(request.path_info) + "?" + str(request.META['QUERY_STRING']))
 
     return render(request, "home.html", context)
     #return django.http.HttpResponse(query)
@@ -154,28 +154,29 @@ def show_project(request, title):
     context['special_mention'] = query.special_mention
     context['file'] = query.file.name
 
-    print(context['file'])
+    #print(context['file'])
     
     return render(request, "description.html", context)
     #return django.http.HttpResponse(query)
 
 
 def download(request, filename):
-    print("BASE DIR -->", settings.BASE_DIR)
+    #print("BASE DIR -->", settings.BASE_DIR)
     base_dir = settings.BASE_DIR
     base_dir = base_dir.replace("\\","/")
     filename = Project.objects.get(title=filename).file
-    print("FILENAME-->", filename)
+    #print("FILENAME-->", filename)
 
     file = f"{base_dir}/media/{filename}"
-    print("FILE-->", file)
+    #print("FILE-->", file)
     response = django.http.HttpResponse(open(file, 'rb').read(), content_type='application/pdf')
 
     try:
         filename = str(filename).replace('files/', "")
-        print("NEW FILENAME-->", filename)
+        #print("NEW FILENAME-->", filename)
     except Exception as error:
-        print("ERROR-->", error)
+        pass
+        # print("ERROR-->", error)
 
     response['Content-Disposition'] = f'attachment; filename="{filename}"'
     return response
